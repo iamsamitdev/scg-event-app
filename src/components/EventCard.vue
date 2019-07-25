@@ -1,11 +1,10 @@
 <template>
     <div>
-            <router-link class="event-link" :to="{ name: 'event-show', params: { id: event.id } }" 
-            v-for="event in events" :key="event.id">
+            <router-link class="event-link" :to="{ name: 'event-show', params: { id: event.id } }">
                 <div class="event-card -shadow">
-                <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-                <h4 class="title">{{ event.title }}</h4>
-                {{ event.attendees.length }} attending
+                    <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+                    <h4 class="title">{{ event.title }}</h4>
+                    {{ event.attendees.length }} attending
                 </div>
             </router-link>
     </div>
@@ -13,31 +12,9 @@
 
 <script>
     export default {
-        data() {
-            return {
-                events:
-                [
-                    {
-                        id: 1,
-                        date:"Tue Aug 30 2019",
-                        time:"06:30",
-                        attendees:[
-                            { id:'abc1234',name:'Samit' },
-                            { id:'def456',name:'Johny' }
-                        ]
-                    },
-                     {
-                        id: 2,
-                        date:"Fri Sep 11 2019",
-                        time:"10:30",
-                        attendees:[
-                            { id:'abc1234',name:'Bobby' },
-                            { id:'def456',name:'Eellbe' }
-                        ]
-                    },
-                ]
-            }
-        },
+        props:{
+            event:Object
+        }
     }
 </script>
 
